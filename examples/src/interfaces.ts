@@ -61,7 +61,17 @@ class Sneaker implements Shoe {
 
 type ShoeType = "balletFlat" | "boot" | "sneaker";
 
-let Shoe = {
+type ShoeCreate = {
+  (create: "balletFlat"): BalletFlat;
+  (create: "boot"): Boot;
+  (create: "sneaker"): Sneaker;
+};
+
+interface ShoeInteface {
+  create: ShoeCreate;
+}
+
+let Shoe: ShoeInteface = {
   create(type: ShoeType) {
     switch (type) {
       case "balletFlat":
