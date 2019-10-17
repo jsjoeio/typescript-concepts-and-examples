@@ -2,7 +2,7 @@
 
 // Represents a game of chess
 
-type Color = "Black" | "White";
+type ChessPieceColor = "Black" | "White";
 // In ches,, they use standard algebraic notation
 // the x-axis are called "Files"
 // the y-axis are called "Ranks"
@@ -23,7 +23,11 @@ class Position {
 
 abstract class Piece {
   protected position: Position;
-  constructor(private readonly color: Color, file: ChessFile, rank: Rank) {
+  constructor(
+    private readonly color: ChessPieceColor,
+    file: ChessFile,
+    rank: Rank
+  ) {
     this.position = new Position(file, rank);
   }
   moveTo(position: Position) {
