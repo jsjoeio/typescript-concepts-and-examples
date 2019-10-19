@@ -62,12 +62,20 @@ type MyKey = keyof O;
 type OtherKey = O['a']['b']
 // object with a key 'c' and value string
 
-// Write an Exclusive<T, U>
+// Write a custom type: Exclusive<T, U>
 
-// WOOO!!!
-type ExclusiveOne<T, U> = T extends U ? never : T;
-type ExclusiveTwo<T, U> = U extends T ? never : U;
-type Exclusive<T, U> = ExclusiveOne<T, U> | ExclusiveTwo<T, U>;
+// If T extends U, meaning it's assignable to it, return never (don't include)
+// else include it
+type ExcludeTFromU<T, U> = T extends U ? never : T;
+// If U extends T, meaning it's assignable to it, return never (don't include)
+// else include it
+type ExcludeUFromT<T, U> = U extends T ? never : U;
+// Create a union type using both our Exlclude Types
+// This returns any types that are in either T or U, but not both.
+type Exclusive<T, U> = ExcludeTFromU<T, U> | ExcludeUFromT<T, U>;
+
+
+type MyTest = Exclusive<1 | 2 | 3, 2 | 3 | 4>;
 
 // Start with 1
 // Does 1 extend 2 - no
@@ -80,5 +88,3 @@ type Exclusive<T, U> = ExclusiveOne<T, U> | ExclusiveTwo<T, U>;
 type IsMyThing<MyThing, YourThing> = MyThing extends YourThing ? true : false;
 type AnotherTest = IsMyThing<string, boolean>;
 
-
-type MyTest = Exclusive<1 | 2 | 3, 2 | 3 | 4>;
