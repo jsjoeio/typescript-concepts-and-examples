@@ -83,3 +83,16 @@ let Shoe: ShoeInteface = {
     }
   }
 };
+
+
+interface User {
+  email: string;
+  firstName: string;
+  age: number
+}
+
+function printUser(user: User) {
+  const firstName = user.firstName;
+  const lastName = user.lastName;
+  console.log(`This is ${firstName} ${lastName}`)
+}
