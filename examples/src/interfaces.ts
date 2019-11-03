@@ -48,23 +48,23 @@ type Shoe = {
 };
 
 class BalletFlat implements Shoe {
-  purpose = "dancing";
+  purpose = 'dancing';
 }
 
 class Boot implements Shoe {
-  purpose = "woodcutting";
+  purpose = 'woodcutting';
 }
 
 class Sneaker implements Shoe {
-  purpose = "walking";
+  purpose = 'walking';
 }
 
-type ShoeType = "balletFlat" | "boot" | "sneaker";
+type ShoeType = 'balletFlat' | 'boot' | 'sneaker';
 
 type ShoeCreate = {
-  (create: "balletFlat"): BalletFlat;
-  (create: "boot"): Boot;
-  (create: "sneaker"): Sneaker;
+  (create: 'balletFlat'): BalletFlat;
+  (create: 'boot'): Boot;
+  (create: 'sneaker'): Sneaker;
 };
 
 interface ShoeInteface {
@@ -74,25 +74,12 @@ interface ShoeInteface {
 let Shoe: ShoeInteface = {
   create(type: ShoeType) {
     switch (type) {
-      case "balletFlat":
+      case 'balletFlat':
         return new BalletFlat();
-      case "boot":
+      case 'boot':
         return new Boot();
-      case "sneaker":
+      case 'sneaker':
         return new Sneaker();
     }
   }
 };
-
-
-interface User {
-  email: string;
-  firstName: string;
-  age: number
-}
-
-function printUser(user: User) {
-  const firstName = user.firstName;
-  const lastName = user.lastName;
-  console.log(`This is ${firstName} ${lastName}`)
-}
