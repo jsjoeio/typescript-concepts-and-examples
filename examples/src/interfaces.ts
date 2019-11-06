@@ -84,7 +84,6 @@ let Shoe: ShoeInteface = {
   }
 };
 
-
 interface User {
   name: string;
   favColors: string[] | undefined;
@@ -93,6 +92,7 @@ interface User {
 function doSomethingWithColors(colors: User['favColors']) {
   let favColors = '';
 
+  // Object is possibly 'undefined'
   colors.forEach((color: string) => {
     // Our logic each
   });
