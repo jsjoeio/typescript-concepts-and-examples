@@ -83,3 +83,15 @@ let Shoe: ShoeInteface = {
     }
   }
 };
+
+
+
+interface User {
+  email: string;
+  firstName: string;
+  age: number;
+}
+
+const myFriend: User = {
+
+}
