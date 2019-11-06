@@ -85,13 +85,15 @@ let Shoe: ShoeInteface = {
 };
 
 
-
 interface User {
-  email: string;
-  firstName: string;
-  age: number;
+  name: string;
+  favColors: string[] | undefined;
 }
 
-const myFriend: User = {
+function doSomethingWithColors(colors: User['favColors']) {
+  let favColors = '';
 
+  colors.forEach((color: string) => {
+    // Our logic each
+  });
 }
