@@ -94,6 +94,6 @@ function doSomethingWithColors(colors: User['favColors']) {
 
   // Object is possibly 'undefined'
   colors.forEach((color: string) => {
-    // Our logic each
+    // Our logic here...
   });
 }
